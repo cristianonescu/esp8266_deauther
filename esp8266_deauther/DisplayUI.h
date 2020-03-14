@@ -32,7 +32,7 @@ extern String replaceUtf8(String str, String r);
 const char D_INTRO_0[] PROGMEM = "";
 const char D_INTRO_1[] PROGMEM = "ESP8266 Deauther";
 const char D_INTRO_2[] PROGMEM = "by @Spacehuhn";
-const char D_INTRO_3[] PROGMEM = "";
+const char D_INTRO_3[] PROGMEM = "Maintnd by CrisOnescu";
 
 // fallback for the buttons
 #ifndef BUTTON_UP

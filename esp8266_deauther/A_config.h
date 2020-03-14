@@ -11,7 +11,7 @@
 // =========================== //
 
 //#define DEFAULT_SSID "pwned"
-//#define HIGHLIGHT_LED 16
+#define HIGHLIGHT_LED 16
 
 // ===================== LED CONFIG ==================== //
 /* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

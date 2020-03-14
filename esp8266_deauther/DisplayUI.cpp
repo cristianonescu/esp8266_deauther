@@ -1,4 +1,7 @@
 #include "DisplayUI.h"
+#include "RTClib.h"
+#include <Wire.h>
+RTC_DS3231 rtc;
 
 // ===== adjustable ===== //
 void DisplayUI::configInit() {
@@ -62,9 +65,13 @@ void DisplayUI::setup() {
     configInit();
     setupButtons();
     buttonTime = currentTime;
+    
+    DateTime now = rtc.now();
 
-    clockHour   = random(12);
-    clockMinute = random(60);
+    clockHour = now.hour();
+    clockMinute = now.minute();
+//    clockHour   = random(12);
+//    clockMinute = random(60);
 
     // ===== MENUS ===== //
 
@@ -890,4 +897,5 @@ void DisplayUI::setTime(int h, int m, int s) {
     clockHour   = h;
     clockMinute = m;
     clockSecond = s;
+    rtc.adjust(DateTime(2020, 3, 14, clockHour, clockMinute, clockSecond));
 }
