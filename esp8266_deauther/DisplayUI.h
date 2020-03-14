@@ -8,11 +8,14 @@
 #include "SSIDs.h"
 #include "Scan.h"
 #include "Attack.h"
-
+#include "RTClib.h"
+#include <Wire.h>
 #include <SimpleButton.h>
 
 using namespace simplebutton;
 
+
+extern RTC_DS3231 rtc;
 extern Settings settings;
 extern Names    names;
 extern SSIDs    ssids;

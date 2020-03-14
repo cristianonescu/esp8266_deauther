@@ -1,7 +1,4 @@
 #include "DisplayUI.h"
-#include "RTClib.h"
-#include <Wire.h>
-RTC_DS3231 rtc;
 
 // ===== adjustable ===== //
 void DisplayUI::configInit() {
