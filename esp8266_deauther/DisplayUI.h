@@ -32,10 +32,10 @@ extern String right(String a, int len);
 extern String leftRight(String a, String b, int len);
 extern String replaceUtf8(String str, String r);
 
-const char D_INTRO_0[] PROGMEM = "";
-const char D_INTRO_1[] PROGMEM = "ESP8266 Deauther";
-const char D_INTRO_2[] PROGMEM = "by @Spacehuhn";
-const char D_INTRO_3[] PROGMEM = "Maintnd by CrisOnescu";
+const char D_INTRO_0[] PROGMEM = "ESP8266 Deauther";
+const char D_INTRO_1[] PROGMEM = "by @Spacehuhn";
+const char D_INTRO_2[] PROGMEM = "Maintained";
+const char D_INTRO_3[] PROGMEM = "by CrisOnescu";
 
 // fallback for the buttons
 #ifndef BUTTON_UP
@@ -173,8 +173,8 @@ class DisplayUI {
         void addMenuNode(Menu* menu, const char* ptr, std::function<void()>click);
         void addMenuNode(Menu* menu, const char* ptr, Menu* next);
 
-        // fake clock
         void drawClock();
+        String getClockTime();
         void setTime(int h, int m, int s);
 
         int clockHour   = 6;

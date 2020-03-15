@@ -67,25 +67,22 @@ void DisplayUI::setup() {
 
     clockHour = now.hour();
     clockMinute = now.minute();
-//    clockHour   = random(12);
-//    clockMinute = random(60);
 
     // ===== MENUS ===== //
 
     // MAIN MENU
     createMenu(&mainMenu, NULL, [this]() {
-        addMenuNode(&mainMenu, D_SCAN, &scanMenu);          /// SCAN
+        addMenuNode(&mainMenu, D_CLOCK, [this]() {          // CLOCK
+            mode = DISPLAY_MODE::CLOCK;
+            display.setFont(ArialMT_Plain_24);
+            display.setTextAlignment(TEXT_ALIGN_CENTER);
+        });
+        addMenuNode(&mainMenu, D_SCAN, &scanMenu);          // SCAN
         addMenuNode(&mainMenu, D_SHOW, &showMenu);          // SHOW
         addMenuNode(&mainMenu, D_ATTACK, &attackMenu);      // ATTACK
         addMenuNode(&mainMenu, D_PACKET_MONITOR, [this]() { // PACKET MONITOR
             scan.start(SCAN_MODE_SNIFFER, 0, SCAN_MODE_OFF, 0, false, wifi_channel);
             mode = DISPLAY_MODE::PACKETMONITOR;
-        });
-        
-        addMenuNode(&mainMenu, D_CLOCK, [this]() { // PACKET MONITOR
-            mode = DISPLAY_MODE::CLOCK;
-            display.setFont(ArialMT_Plain_24);
-            display.setTextAlignment(TEXT_ALIGN_CENTER);
         });
 
 #ifdef HIGHLIGHT_LED
@@ -660,13 +657,14 @@ void DisplayUI::draw() {
             setTime(clockHour, clockMinute++, clockSecond + 1);
             clockTime += 1000;
         }
-
+        
         switch (mode) {
         case DISPLAY_MODE::BUTTON_TEST:
             drawButtonTest();
             break;
 
         case DISPLAY_MODE::MENU:
+            drawString(0, leftRight(String(), getClockTime(), maxLen));
             drawMenu();
             break;
 
@@ -783,14 +781,18 @@ void DisplayUI::drawIntro() {
     drawString(4, center(settings.getVersion(), maxLen));
 }
 
-void DisplayUI::drawClock() {
+String DisplayUI::getClockTime() {
     String clockTime = String(clockHour);
 
     clockTime += ':';
     if (clockMinute < 10) clockTime += '0';
     clockTime += String(clockMinute);
 
-    display.drawString(64, 20, clockTime);
+    return clockTime;
+}
+
+void DisplayUI::drawClock() {
+    display.drawString(64, 20, getClockTime());
 }
 
 void DisplayUI::clearMenu(Menu* menu) {
