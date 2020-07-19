@@ -103,7 +103,7 @@ sudo ln -s /usr/local/bin/python3 python3
 * Instal esptools
 * Run this command
 `esptool.py -p /dev/cu.SLAB_USBtoUART -b 115200 read_flash 0 0x100000 flash_dump.bin
-0x100000 if the esp is 1mb version`
+0x100000` if the esp is 1mb version
 
 
 ## Write to device
