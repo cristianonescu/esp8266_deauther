@@ -84,7 +84,7 @@ Happy Hacking!
 # Environment setup (MUST DO THIS)
 Follow the steps [https://github.com/cristianonescu/Arduino/blob/deauther/README.md#installation](https://github.com/cristianonescu/Arduino/blob/deauther/README.md#installation)
 
-## OPTIONAL DO THIS:
+#### OPTIONAL DO THIS:
 * INSTALL ADAFRUIT NEOPIXEL 1.5.0 https://github.com/adafruit/Adafruit_NeoPixel
 * Install this https://github.com/cristianonescu/SimpleButton (follow Installation Instructions from readme)
 * Install this v1.4.0 : https://github.com/adafruit/RTClib
@@ -99,6 +99,11 @@ sudo ln -s /usr/bin/python3 /usr/local/bin/python3
 sudo ln -s /usr/local/bin/python3 python3
 ```
 
+## Board Settings
+
+![](https://github.com/cristianonescu/esp8266_deauther/blob/master/Screenshot%202020-07-19%20at%2004.49.50.png)
+
+
 ## Extract bin from esp
 * Instal esptools
 * Run this command
@@ -110,8 +115,6 @@ sudo ln -s /usr/local/bin/python3 python3
 * Sketch -> Export Compiled Binary
 * The generated file will be exported in the same place with the .ino file, named esp8266_deauther.ino.generic.bin
 `esptool.py -p /dev/cu.SLAB_USBtoUART -b 115200 write_flash 0x00000 esp8266_deauther.ino.generic.bin`
-
-
 
 ## Credits
 A huge thanks to:
