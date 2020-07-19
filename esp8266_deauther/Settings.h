@@ -10,7 +10,7 @@ extern "C" {
 #include "language.h"
 #include "A_config.h"
 
-#define VERSION "v2.2.0"
+#define VERSION "v2.2.1"
 
 extern void checkFile(String path, String data);
 extern JsonVariant parseJSONFile(String path, DynamicJsonBuffer& jsonBuffer);
