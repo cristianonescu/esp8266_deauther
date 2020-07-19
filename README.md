@@ -80,6 +80,39 @@ If you do, it only proves that you didn't understand anything of what this proje
 Visit our new [Wiki](https://github.com/spacehuhn/esp8266_deauther/wiki) on how to recreate this project and use it.  
 Happy Hacking!
 
+
+# Environment setup (MUST DO THIS)
+Follow the steps [https://github.com/cristianonescu/Arduino/blob/deauther/README.md#installation](https://github.com/cristianonescu/Arduino/blob/deauther/README.md#installation)
+
+## OPTIONAL DO THIS:
+* INSTALL ADAFRUIT NEOPIXEL 1.5.0 https://github.com/adafruit/Adafruit_NeoPixel
+* Install this https://github.com/cristianonescu/SimpleButton (follow Installation Instructions from readme)
+* Install this v1.4.0 : https://github.com/adafruit/RTClib
+* AND THEN THIS: https://github.com/cristianonescu/esp8266_deauther
+
+
+### When building project, if you get any error that says something about python3 do this:
+```
+cd ~/Library/Arduino15/packages/wifiduck/tools/python3/3.7.2-post1
+sudo unlink python3
+sudo ln -s /usr/bin/python3 /usr/local/bin/python3
+sudo ln -s /usr/local/bin/python3 python3
+```
+
+## Extract bin from esp
+* Instal esptools
+* Run this command
+`esptool.py -p /dev/cu.SLAB_USBtoUART -b 115200 read_flash 0 0x100000 flash_dump.bin
+0x100000 if the esp is 1mb version`
+
+
+## Write to device
+* Sketch -> Export Compiled Binary
+* The generated file will be exported in the same place with the .ino file, named esp8266_deauther.ino.generic.bin
+`esptool.py -p /dev/cu.SLAB_USBtoUART -b 115200 write_flash 0x00000 esp8266_deauther.ino.generic.bin`
+
+
+
 ## Credits
 A huge thanks to:
 - [@deantonious](http://github.com/deantonious)
