@@ -38,6 +38,10 @@ void DisplayUI::updateSuffix() {
     display.display();
 }
 
+void DisplayUI::fillRect(int x, int y, int width, int height) {
+    display.fillRect(x, y, width, height);
+}
+
 void DisplayUI::drawString(int x, int y, String str) {
     display.drawString(x, y, replaceUtf8(str, String(QUESTIONMARK)));
 }
@@ -664,6 +668,9 @@ void DisplayUI::draw() {
             break;
 
         case DISPLAY_MODE::MENU:
+            fillRect(88, 4, 5, 2); // battery indicator HIGH
+            fillRect(88, 7, 5, 2); // battery indicator MED
+            fillRect(88, 10, 5, 2); // battery indicator LOW
             drawString(0, leftRight(String(), getClockTime(), maxLen));
             drawMenu();
             break;

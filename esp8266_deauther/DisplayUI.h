@@ -96,6 +96,7 @@ class DisplayUI {
         void configOff();
         void updatePrefix();
         void updateSuffix();
+        void fillRect(int x, int y, int width, int height);
         void drawString(int x, int y, String str);
         void drawString(int row, String str);
         void drawLine(int x1, int y1, int x2, int y2);
