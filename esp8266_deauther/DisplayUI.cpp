@@ -668,9 +668,9 @@ void DisplayUI::draw() {
             break;
 
         case DISPLAY_MODE::MENU:
-            fillRect(88, 4, 5, 2); // battery indicator HIGH
-            fillRect(88, 7, 5, 2); // battery indicator MED
-            fillRect(88, 10, 5, 2); // battery indicator LOW
+            fillRect(79, 2, 3, 1); fillRect(78, 4, 5, 2); // battery indicator HIGH
+            fillRect(78, 7, 5, 2); // battery indicator MED
+            fillRect(78, 10, 5, 2); // battery indicator LOW
             drawString(0, leftRight(String(), getClockTime(), maxLen));
             drawMenu();
             break;
