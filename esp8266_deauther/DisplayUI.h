@@ -11,6 +11,7 @@
 #include "RTClib.h"
 #include <Wire.h>
 #include <SimpleButton.h>
+#include "images.h"
 
 using namespace simplebutton;
 
@@ -100,6 +101,7 @@ class DisplayUI {
         void drawString(int x, int y, String str);
         void drawString(int row, String str);
         void drawLine(int x1, int y1, int x2, int y2);
+        void drawBattery();
         // ====================== //
 
         DisplayUI();

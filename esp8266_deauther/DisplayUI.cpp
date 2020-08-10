@@ -54,6 +54,12 @@ void DisplayUI::drawLine(int x1, int y1, int x2, int y2) {
     display.drawLine(x1, y1, x2, y2);
 }
 
+void DisplayUI::drawBattery(){
+    fillRect(79, 2, 3, 1); fillRect(78, 4, 5, 2); // battery indicator HIGH
+    fillRect(78, 7, 5, 2); // battery indicator MED
+    fillRect(78, 10, 5, 2); // battery indicator LOW
+}
+
 // ====================== //
 
 
@@ -668,9 +674,7 @@ void DisplayUI::draw() {
             break;
 
         case DISPLAY_MODE::MENU:
-            fillRect(79, 2, 3, 1); fillRect(78, 4, 5, 2); // battery indicator HIGH
-            fillRect(78, 7, 5, 2); // battery indicator MED
-            fillRect(78, 10, 5, 2); // battery indicator LOW
+            drawBattery();
             drawString(0, leftRight(String(), getClockTime(), maxLen));
             drawMenu();
             break;
@@ -781,11 +785,30 @@ void DisplayUI::drawPacketMonitor() {
 }
 
 void DisplayUI::drawIntro() {
-    drawString(0, center(str(D_INTRO_0), maxLen));
-    drawString(1, center(str(D_INTRO_1), maxLen));
-    drawString(2, center(str(D_INTRO_2), maxLen));
-    drawString(3, center(str(D_INTRO_3), maxLen));
-    drawString(4, center(settings.getVersion(), maxLen));
+//    drawString(0, center(str(D_INTRO_0), maxLen));
+//    drawString(1, center(str(D_INTRO_1), maxLen));
+//    drawString(2, center(str(D_INTRO_2), maxLen));
+//    drawString(3, center(str(D_INTRO_3), maxLen));
+    drawString(0, center(settings.getVersion(), maxLen));
+    if (currentTime - startTime < 400) {
+    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, myBitmap1);
+    display.display();
+    }else if (currentTime - startTime < 800) {
+    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, myBitmap2);
+    display.display();
+    }else if (currentTime - startTime < 1200) {
+    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, myBitmap3);
+    display.display();
+    }else if (currentTime - startTime < 1600) {
+    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, myBitmap4);
+    display.display();
+    }else if (currentTime - startTime < 2000) {
+    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, myBitmap5);
+    display.display();
+    }else if (currentTime - startTime < 2400) {
+    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, myBitmap6);
+    drawString(4, center(str(D_INTRO_3), maxLen));
+    }
 }
 
 String DisplayUI::getClockTime() {
