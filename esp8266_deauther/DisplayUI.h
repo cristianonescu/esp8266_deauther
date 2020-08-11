@@ -11,7 +11,7 @@
 #include "RTClib.h"
 #include <Wire.h>
 #include <SimpleButton.h>
-#include "images.h"
+#include "BootImage.h"
 
 using namespace simplebutton;
 
@@ -33,10 +33,10 @@ extern String right(String a, int len);
 extern String leftRight(String a, String b, int len);
 extern String replaceUtf8(String str, String r);
 
-const char D_INTRO_0[] PROGMEM = "ESP8266 Deauther";
-const char D_INTRO_1[] PROGMEM = "by @Spacehuhn";
-const char D_INTRO_2[] PROGMEM = "Maintained";
-const char D_INTRO_3[] PROGMEM = "by CrisOnescu";
+const char D_INTRO_0[] PROGMEM = "Powered by Spacehuhn";
+const char D_INTRO_1[] PROGMEM = "";
+const char D_INTRO_2[] PROGMEM = "";
+const char D_INTRO_3[] PROGMEM = "Updated by CrisOnescu";
 
 // fallback for the buttons
 #ifndef BUTTON_UP

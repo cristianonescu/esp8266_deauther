@@ -77,6 +77,7 @@ void DisplayUI::setup() {
 
     clockHour = now.hour();
     clockMinute = now.minute();
+    clockSecond = now.second();
 
     // ===== MENUS ===== //
 
@@ -785,28 +786,30 @@ void DisplayUI::drawPacketMonitor() {
 }
 
 void DisplayUI::drawIntro() {
-//    drawString(0, center(str(D_INTRO_0), maxLen));
-//    drawString(1, center(str(D_INTRO_1), maxLen));
-//    drawString(2, center(str(D_INTRO_2), maxLen));
-//    drawString(3, center(str(D_INTRO_3), maxLen));
-    drawString(0, center(settings.getVersion(), maxLen));
     if (currentTime - startTime < 400) {
-    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, myBitmap1);
+    drawString(0, center(settings.getVersion(), maxLen));
+    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, frame1);
     display.display();
     }else if (currentTime - startTime < 800) {
-    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, myBitmap2);
+    drawString(0, center(settings.getVersion(), maxLen));
+    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, frame2);
     display.display();
     }else if (currentTime - startTime < 1200) {
-    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, myBitmap3);
+    drawString(0, center(settings.getVersion(), maxLen));
+    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, frame3);
     display.display();
     }else if (currentTime - startTime < 1600) {
-    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, myBitmap4);
+    drawString(0, center(settings.getVersion(), maxLen));
+    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, frame4);
     display.display();
     }else if (currentTime - startTime < 2000) {
-    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, myBitmap5);
+    drawString(0, center(str(D_INTRO_0), maxLen));
+    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, frame5);
+    drawString(4, center(str(D_INTRO_3), maxLen));
     display.display();
     }else if (currentTime - startTime < 2400) {
-    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, myBitmap6);
+    drawString(0, center(str(D_INTRO_0), maxLen));
+    display.drawXbm(34, 14, boot_Logo_width, boot_Logo_height, frame6);
     drawString(4, center(str(D_INTRO_3), maxLen));
     }
 }
