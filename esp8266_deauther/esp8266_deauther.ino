@@ -6,6 +6,7 @@
  */
 
 extern "C" {
+  ADC_MODE(ADC_VCC);
   // Please follow this tutorial:
   // https://github.com/spacehuhn/esp8266_deauther/wiki/Installation#compiling-using-arduino-ide
   // And be sure to have the right board selected
