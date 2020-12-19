@@ -56,14 +56,23 @@ void DisplayUI::drawLine(int x1, int y1, int x2, int y2) {
 
 void DisplayUI::drawBattery(){
     float vdd = ((float)ESP.getVcc())/1024;
-    // drawString(60, 2, String(vdd)); // used for debug
-    if(vdd > 2.7){
-     fillRect(79, 2, 3, 1); fillRect(78, 4, 5, 2); // battery indicator HIGH
+//    drawString(45, 0, String(vdd)); // used for debug
+     
+    if(vdd >= 3.49){
+     fillRect(78, 4, 5, 2); // battery indicator HIGH
     }
-    if(vdd > 1.4){
+    if(vdd >= 3.48){
      fillRect(78, 7, 5, 2); // battery indicator MED
     }
-     fillRect(78, 10, 5, 2); // battery indicator LOW
+    if(vdd >= 3.47){
+      fillRect(78, 10, 5, 2); // battery indicator LOW
+    }
+
+    // the following lines draw the battery container
+    fillRect(79, 2, 3, 1);
+    display.drawLine(78, 3, 78, 11);
+    display.drawLine(82, 3, 82, 11);
+    display.drawLine(78, 11, 82, 11);
 }
 
 // ====================== //
