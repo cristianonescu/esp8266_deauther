@@ -116,6 +116,12 @@ sudo ln -s /usr/local/bin/python3 python3
 * The generated file will be exported in the same place with the .ino file, named esp8266_deauther.ino.generic.bin
 `esptool.py -p /dev/cu.SLAB_USBtoUART -b 115200 write_flash 0x00000 esp8266_deauther.ino.generic.bin`
 
+Using Esp Flash Download TOOL
+*Download the tool from here
+[https://www.espressif.com/en/support/download/other-tools](https://www.espressif.com/en/support/download/other-tools)
+*Configure it like in the picture:
+![Screenshot 2024-07-04 181012](https://github.com/cristianonescu/esp8266_deauther/assets/31920496/9bb410d7-72c1-4a0c-8523-6ba41b110c86)
+
 ## Credits
 A huge thanks to:
 - [@deantonious](http://github.com/deantonious)
